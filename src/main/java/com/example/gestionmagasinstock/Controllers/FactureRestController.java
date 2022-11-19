@@ -6,10 +6,7 @@ import com.example.gestionmagasinstock.Entities.Produit;
 import com.example.gestionmagasinstock.Services.IfactureService;
 import com.example.gestionmagasinstock.Services.IproduitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,7 +32,17 @@ public class FactureRestController {
 
     }
 
+    @GetMapping("/{idClient}")
+    public List<Facture> getFacturesByClient(@PathVariable(value = "idClient") long idClient)
+    {
+        return ifactureService.getFacturesByClient(idClient);
+    }
 
+    @PostMapping("/{idClient}")
+    public Facture addFacture(@RequestBody Facture f, @PathVariable(value = "idClient") Long idClient)
+    {
+        return ifactureService.addFacture(f,idClient);
+    }
 
 
 

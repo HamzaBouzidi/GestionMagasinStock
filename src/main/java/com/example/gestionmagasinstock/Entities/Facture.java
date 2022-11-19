@@ -22,9 +22,11 @@ public class Facture {
     private Long idFacture;
     private float montantRemise;
     private float montantFacture;
+    private boolean active;
     @Temporal(TemporalType.DATE)
     private Date dateFacture;
-    private boolean active;
+
+
 
     @OneToMany(mappedBy = "facture")
     private Set<DetailFacture> detailFactures;

@@ -1,7 +1,9 @@
 package com.example.gestionmagasinstock.Services;
 
+import com.example.gestionmagasinstock.Entities.CategorieClient;
 import com.example.gestionmagasinstock.Entities.Client;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IclientService {
@@ -15,4 +17,6 @@ public interface IclientService {
     Client updateClient(Client c);
 
     Client retrieveClient(Long id);
+
+    float getChiffreAffaireParCategorieClient(CategorieClient categorieClient, Date startDate, Date endDate);
 }
